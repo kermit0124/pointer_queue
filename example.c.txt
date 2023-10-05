@@ -1,0 +1,69 @@
+#include "pointer_queue.h"
+
+
+int main() {
+    pointer_queue_t myQueue;
+    int32_t buffer[3] ;
+    pointerQueue_initial(&myQueue,buffer,sizeof(buffer)/sizeof(int32_t),sizeof(int32_t));
+    
+    uint32_t que_data;
+    POINTER_QUEUE_RES_ENUM_t res ;
+    que_data = 10;
+    res = pointerQueue_enqueue(&myQueue, &que_data);
+    printf("Enqueued %d\n\r",res) ;
+    que_data = 20;
+    res = pointerQueue_enqueue(&myQueue, &que_data);
+    printf("Enqueued %d\n\r",res) ;
+    que_data = 30;
+    res = pointerQueue_enqueue(&myQueue, &que_data);
+    printf("Enqueued %d\n\r",res) ;
+    que_data = 40;
+    res = pointerQueue_enqueue(&myQueue, &que_data);
+    printf("Enqueued %d\n\r",res) ;
+    que_data = 50;
+    res = pointerQueue_enqueue(&myQueue, &que_data);
+    printf("Enqueued %d\n\r",res) ;
+    
+    uint32_t deque_data = 0;
+    res = pointerQueue_dequeue(&myQueue,&deque_data) ;
+    printf("Dequeued res:%d ,data:%d\n",res, deque_data);
+    res = pointerQueue_dequeue(&myQueue,&deque_data) ;
+    printf("Dequeued res:%d ,data:%d\n",res, deque_data);
+
+    res = pointerQueue_dequeue(&myQueue,&deque_data) ;
+    printf("Dequeued res:%d ,data:%d\n",res, deque_data);
+
+    printf("---\n\r") ;
+
+    res = pointerQueue_dequeue(&myQueue,&deque_data) ;
+    printf("Dequeued res:%d ,data:%d\n",res, deque_data);
+
+    res = pointerQueue_enqueue(&myQueue, &que_data);
+    printf("Enqueued %d\n\r",res) ;
+    res = pointerQueue_enqueue(&myQueue, &que_data);
+    printf("Enqueued %d\n\r",res) ;
+    res = pointerQueue_dequeue(&myQueue,&deque_data) ;
+    printf("Dequeued res:%d ,data:%d\n",res, deque_data);
+    res = pointerQueue_dequeue(&myQueue,&deque_data) ;
+    printf("Dequeued res:%d ,data:%d\n",res, deque_data);
+    res = pointerQueue_dequeue(&myQueue,&deque_data) ;
+    printf("Dequeued res:%d ,data:%d\n",res, deque_data);
+
+    que_data = 7 ;
+    res = pointerQueue_enqueue(&myQueue, &que_data);
+    printf("Enqueued %d\n\r",res) ;
+    que_data = 8 ;
+    res = pointerQueue_enqueue(&myQueue, &que_data);
+    printf("Enqueued %d\n\r",res) ;
+    que_data = 9 ;
+    res = pointerQueue_enqueue(&myQueue, &que_data);
+    printf("Enqueued %d\n\r",res) ;
+    res = pointerQueue_dequeue(&myQueue,&deque_data) ;
+    printf("Dequeued res:%d ,data:%d\n",res, deque_data);
+    res = pointerQueue_dequeue(&myQueue,&deque_data) ;
+    printf("Dequeued res:%d ,data:%d\n",res, deque_data);
+    res = pointerQueue_dequeue(&myQueue,&deque_data) ;
+    printf("Dequeued res:%d ,data:%d\n",res, deque_data);
+
+    return 0;
+}
